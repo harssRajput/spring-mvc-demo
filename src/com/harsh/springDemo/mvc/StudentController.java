@@ -1,5 +1,7 @@
 package com.harsh.springDemo.mvc;
 
+import java.util.Arrays;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,8 +27,11 @@ public class StudentController {
 	public String processForm(@ModelAttribute("student") Student student) {
 		
 		//log the input data
-		System.out.println("student is: " + student.getFirstName() + " " +
-		student.getLastName() + "country " + student.getCountry());
+		System.out.println("student info: \nname" + student.getFirstName() + " " + student.getLastName() + 
+				"\ncountry " + student.getCountry() + 
+				"\nfavorite language: " + student.getFavoriteLanguage() + 
+				"\noperating systems: " + Arrays.toString(student.getOperatingSystems())
+				);  
 		
 		return "student-confirmation";
 	}
